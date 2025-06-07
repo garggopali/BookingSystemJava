@@ -1,5 +1,9 @@
+package com.example.bookingsystem.controller;
+
+import org.springframework.http.ResponseEntity;
+
 @RestController
-@RequestMapping("/booking")
+@RequestMapping("/bookings")
 public class BookingController{
     @autowire
     BookingService bookingService;
@@ -8,8 +12,8 @@ public class BookingController{
 
     }
 
-    @GetMapping("/add")
-    private String getBooking(@PathVariable(Name="name")String cusName){
+    @PostMapping("/")
+    private  saveBooking(@RequestBody Booking booking){
         Customer cust=new Customer("GG");
         return bookingService.addCust(cust);
     }
